@@ -1,0 +1,21 @@
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant: small-caps;
+    color:#666666
+}
+
+a {
+    font-family: sans-serif;
+    text-decoration: none;
+    color:blue;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+img {
+    float: left;
+    margin-right: 28px;
+
+}
