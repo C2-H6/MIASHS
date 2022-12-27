@@ -12,6 +12,7 @@ int main()
         tmp += nbr;
     }
 
-    (void)printf("%d\n",tmp / n);
+    (void)printf("la somme est de : %d\n", tmp);
+    (void)printf("la moyenne est de : %d\n", tmp / n);
     return 0;
 }

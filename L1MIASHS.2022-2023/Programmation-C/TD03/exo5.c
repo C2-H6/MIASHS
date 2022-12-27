@@ -10,8 +10,8 @@ int secret(void)
 
 void try(int nbrTry)
 {
-        if (nbrTry == 1)
-        printf("Vous avez trouver du prenier coup !!! \n");
+    if (nbrTry == 1)
+        printf("Vous avez trouver du prenier coup !!!\n");
     if (nbrTry <= 5)
         printf("Vous avez trouver en mois de 5 essaies\n");
     if (nbrTry > 5)
