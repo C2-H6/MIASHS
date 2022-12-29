@@ -89,10 +89,10 @@ int gameImself(char *tab)
     int nbr = 0, nbrTry = 0;
 
     #if DEBUG
-    printf("Le nombre a chercher : [");
+    (void)printf("Le nombre a chercher : [");
     for(size_t j = 0; j < 5; ++j)
-        printf("%d", tab[j]);
-    printf("]\n");
+        (void)printf("%d", tab[j]);
+    (void)printf("]\n");
     #endif
 
     do {
