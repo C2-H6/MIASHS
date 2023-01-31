@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h> 
 
+//structure qui stock toutes les donnee du prog
 typedef struct data_s
 {
     int nbrGame;
@@ -12,6 +13,7 @@ typedef struct data_s
     int moyenne;
 }data;
 
+//va afficher les donnee en fin de cycle de partie
 void printData(data try)
 {
     (void)printf("Vous avez jouer %d parties\n", try.nbrGame);
@@ -20,11 +22,13 @@ void printData(data try)
     (void)printf("Vous avez eu besoin de %d essaies en moyenne\n", try.moyenne / try.nbrGame);
 }
 
+//genere un nombre entre 1 et 9
 int genNbr(void)
 {
-    return rand() % 9;
+    return rand() % 10;
 }
 
+//va remplir le tableau de nombres 
 char *initTab(void)
 {
     static char tab[5];
@@ -42,6 +46,7 @@ char *initTab(void)
     return tab;
 }
 
+//va update les diffentes stats de parties
 void changeStat(int nbr, data *try)
 {
     ++(try->nbrGame);
@@ -57,40 +62,36 @@ void changeStat(int nbr, data *try)
    try->moyenne += nbr;
 }
 
-void printGame(size_t count)
+//verifie si le nombre existe dans la liste
+int same(char *tab, int i, int nbr)
 {
-    printf("\n");
-    if (count == 5) {
-        printf("bien jouer vous avez trouver le bon nombre !!!\n\n");
-    } 
-    else if (count == 4)
-    {
-        printf("Il y a %ld chiffres bien placer\n", count);
-        printf("Il y a %ld chiffre mal placer\n\n", 5 - count);
-    } 
-    else if (count == 1)
-    {
-        printf("Il y a %ld chiffre bien placer\n", count);
-        printf("Il y a %ld chiffres mal placer\n\n", 5 - count);
-    } else {
-        printf("Il y a %ld chiffres bien placer\n", count);
-        printf("Il y a %ld chiffres mal placer\n\n", 5 - count);
-    }
+    for (int j = 0; j < 5; ++j)
+        if (tab[j] == nbr)
+            return 1;
+    return 0;
 }
 
+//boucle principale de jeux 
 int abyssOfTheGame(char *tab, int nbr)
 {
     int tabCmp[] = {10000, 1000, 100, 10, 1};
     int count = 0;
 
-    for (size_t i = 0; i < 5; ++i)
-        if(nbr / tabCmp[i] % 10 == tab[i])
-            ++count;
-    
-    printGame(count);
+    for (size_t i = 0; i < 5; ++i) {
+            if (nbr / tabCmp[i] % 10 == tab[i]) {
+                (void)printf("+");
+                ++count;
+            } 
+            else if (same(tab, i, (nbr / tabCmp[i] % 10))) {
+                printf("~");
+            } else
+                printf("-");      
+        }
+    printf("\n");
     return count;
 }
 
+//boucle de jeux, relance tant que le joueur n'a pas trouver
 int gameImself(char *tab)
 {
     int nbr = 0, nbrTry = 0;
@@ -103,15 +104,16 @@ int gameImself(char *tab)
     #endif
 
     do {
-    (void)printf("essayer de trouver le nombre :\n");
-    (void)scanf("%d[0-9]", &nbr);// gestion d'erreur
-    
-    ++nbrTry;
-    } while (abyssOfTheGame(tab, nbr) != 5);
-    
-   return nbrTry;
+        (void)printf("essayer de trouver le nombre :\n");
+        (void)scanf(" %d[0-9]", &nbr);
+
+        ++nbrTry;
+    } while(abyssOfTheGame(tab, nbr) != 5);
+      
+    return nbrTry;
 }
 
+//recupere les stats et initialise le rand pour le jeux
 void game(data *try)
 {
     srand(time(NULL));
@@ -120,9 +122,10 @@ void game(data *try)
     changeStat(gameImself(tab), try);
 }
 
+//lance une nouvelle partie et apelles les differentes partie du programme
 int main(void)
 {
-    char *aff; 
+    char *aff = NULL; 
     data try = {0,0,0,0};
 
     do {

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Accueil</title>
+	<link href="series.css" rel="stylesheet">
+</head>
+<body>
+
+<ul class="navbar">
+	<li class="active"><a href="#">Accueil</a></li>
+	<li><a href="commande.html">Commandes</a></li>
+	<li><a href="notes.html">Notes</a></li>
+	<li class="right"><a href="infos.html">Infos</a></li>
+</ul> 
+
+<div class="content">
+
+	<h1 class="center">Meilleures séries</h1>
+
+	<div class="tab">
+		<button class="tablinks active" onclick="changeTab(event, 'series')">Séries</button>
+		<button class="tablinks" onclick="changeTab(event, 'films')">Films</button>
+	</div>
+
+		<div id="hometab" class="tabcontent">
+
+			<div class="row">
+				<div class="column col-33">
+					<div class="card">
+						<img class="avatar" src="img/breakingbad.jpg" alt="breakingbad" />
+						<div class="container">
+							<h4>Breaking Bad</h4>
+							<button class="button primary" onclick="naviguer('series/breakingbad.html')">Accéder</button>
+						</div>
+					</div>
+				</div>
+				<div class="column col-33">
+					<div class="card">
+						<img class="avatar" src="img/cowboybebop.jpg" alt="cowboybebop"/>
+						<div class="container">
+							<h4>Cowboy Bebop</h4>
+							<button class="button primary" onclick="naviguer('series/cowboybebop.html')">Accéder</button>
+						</div>
+					</div>
+				</div>
+				<div class="column col-33">
+					<div class="card">
+						<img class="avatar" src="img/madmen.jpg" alt="madmen"/>
+						<div class="container">
+							<h4>Mad Men</h4>
+							<button class="button primary" onclick="naviguer('series/madmen.html')">Accéder</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		// id="films" class="tabcontent" style="display: none;">
+
+			<div class="row">
+				<div class="column col-33">
+					<div class="card">
+						<img class="avatar" src="img/2046.jpg" alt="2046" />
+						<div class="container">
+							<h4>2046</h4>
+							<button class="button primary" onclick="naviguer('films/2046.html')">Accéder</button>
+						</div>
+					</div>
+				</div>
+				<div class="column col-33">
+					<div class="card">
+						<img class="avatar" src="img/matrix.jpg" alt="matrix"/>
+						<div class="container">
+							<h4>Matrix</h4>
+							<button class="button primary" onclick="naviguer('films/matrix.html')">Accéder</button>
+						</div>
+					</div>
+				</div>
+				<div class="column col-33">
+					<div class="card">
+						<img class="avatar" src="img/monnomestpersonne.jpg" alt="monnomestpersonne"/>
+						<div class="container">
+							<h4>Mon nom est personne</h4>
+							<button class="button primary" onclick="naviguer('films/monnomestpersonne.html')">Accéder</button>
+						</div>
+					</div>
+				</div>
+
+		//</div>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="js/accueil.js"></script>
+
+</body>
+</html> 

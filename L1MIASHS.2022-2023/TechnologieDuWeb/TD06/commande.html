@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Commander un épisode de série</title>
+		<link type="text/css" rel="stylesheet" href="series.css">
+		<link type="text/css" rel="stylesheet" href="commande.css">
+	</head>
+	<body>
+
+		<div class="content">
+
+			<ul class="navbar">
+				<li><a href="accueil.html">Accueil</a></li>
+				<li class="active"><a href="#">Commandes</a></li>
+				<li><a href="notes.html">Notes</a></li>
+				<li class="right"><a href="infos.html">Infos</a></li>
+			</ul> 
+
+			<h1 class="center">Passer une commande</h1>
+			
+			<form action="#" method="get">
+				<label class="mylabel" for="nomserie">Nom de la série :</label><br>
+				<input class="myinput" type="text" name="nomserie" value=""><br>
+				<label class="mylabel" for="numserie">Numéro de la saison:</label><br>
+				<input class="myinput" type="number" name="numserie" value=1><br>
+				<label class="mylabel" for="numep">Numéro de l'épisode:</label><br>
+				<input class="myinput" type="number" name="numep" value=1><br>
+				<input class="button primary" type="submit" value="Chercher">
+				<input class="button" type="reset" value="Remettre à zéro">
+			</form>
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,73 @@
+
+|||||||||||||||||||||||||||||||||||||||| exercice 1 ||||||||||||||||||||||||||||||||||||||||
+
+DEBUT
+	ECRIRE("'Bonjour Gaël')//cette ligne affiche Gael
+FIN
+
+|||||||||||||||||||||||||||||||||||||||| exercice 2 ||||||||||||||||||||||||||||||||||||||||
+
+VARIABLE
+	animal : chaine
+DEBUT
+	ECRIRE("'Donne nous un nom d'animal")
+	LIRE(animal)
+	//ces conditions comparent le nom de l'animal donner par l'utilisateur pour donner la bonne nouriture
+	SI (animal == "chevaux") 
+		ALORS ECRIRE("les chevaux mangent des carottes")
+	FSI
+	SI (animal == "lapins")
+		ALORS ECRIRE("les lapins mangent des carottes")
+	FSI
+	SI (animal == "chiens")
+		ALORS ECRIRE("les chiens mangent de la viande")
+	FSI
+	SI (animal == "chats")
+		ALORS ECRIRE("les chats mangent de la viande")
+	FSI
+	SI (animal == "humains")
+		ALORS ECRIRE("les humains mangent de la viande et des carottes")
+	FSI
+FIN
+
+|||||||||||||||||||||||||||||||||||||||| exercice 3 ||||||||||||||||||||||||||||||||||||||||
+
+BOOLEEN SSALGO DivParSept(nbr : NUMERIQUE)
+DEBUT
+	SI (nbr DIV 7 <> 0) // verifie si le nombre donner par l'utilisateur est divisible par 7
+		retourne (VRAIE)
+	retourne (FAUX)
+FINSA
+
+NUMERIQUE SSALGO SommeDivSept(tab : TABLEAU DE 1 NUMERIQUE)
+VARIABLE
+	tmp, i : NUMERIQUE
+DEBUT
+	// initialise les variables a 0
+	tmp <- 0
+	// la valeur temporaire est egale a la valeur temporaire plus un element du tableau divise par 7
+	POUR i DE 1 A 30 FAIRE
+		tmp <- (tmp + tab[i] / 7)
+	retourne (tmp)
+FINSA
+
+|||||||||||||||||||||||||||||||||||||||| exercice 4 ||||||||||||||||||||||||||||||||||||||||
+
+NUMERIQUE SSALGO Temperature(tab : TABLEAU DE 1 NUMERIQUE)
+VARIABLE
+	tmp, value, i, j : NUMERIQUE
+DEBUT
+// initialise les variables a 0
+value <- 0
+POUR i DE 0 A 28 (7) // parcours le mois par tranche de 7 jours, le PAS est egale a 7
+	tmp <- 0 // remet tmp a 0 a chaque boucle
+	POUR j DE i A i + 7 // parcours 1 semaine avec j = i et la condition de fin qui vaut la fin de semaine donc j + 7
+		tmp <- tmp + tab[j] // recupere la temperature de chaque journee d'une semaine
+	FPOUR
+	// verifie si la moyenne des temperature d'une semaine est plus grande que l'ancienne plus grande
+	SI (tmp / 7 > value)
+		value <- tmp / 7 
+	FINSI
+FPOUR
+retourne (value) // retourne value qui vaut la temperature moyenne de la plus grosse semaine
+FINSA

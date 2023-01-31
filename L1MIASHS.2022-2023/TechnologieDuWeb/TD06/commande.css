@@ -1,0 +1,22 @@
+.mylabel {
+	float: left;
+	width: 150px;
+}
+
+.myinput {
+	margin-bottom: 15px;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.primary {
+	color: white;
+	background-color: blue;
+}
+
+.danger {
+	color: white;
+	background-color: brown;
+}
