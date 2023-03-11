@@ -1,0 +1,125 @@
+//de Maeyer Ethan
+
+
+/*---------------------------------- part e ----------------------------------------*/
+
+SSALGO rewrite(fName : CHAINE PAR VALEUR)
+VARIABLE
+    file : FICHIER DE CHAINE
+    nom : CHAINE
+    tmp : NUMERIQUE
+    nbr : NUMERIQUE
+DEBUT
+    OUVRIR(file2, fName, "r")
+    TANTQUE NON FDF(fName) FAIRE
+        LIRE(file, nom, tmp)
+        nbr <- tmp
+    FTQUE
+
+    RETOURNE nbr
+FINSA
+
+/*---------------------------------- part d ----------------------------------------*/
+
+SSALGO rewrite(f1 : CHAINE PAR VALEUR, f2 : CHAINE PAR VALEUR)
+VARIABLE
+    file1 : FICHIER DE CHAINE
+    file2 : FICHIER DE CHAINE
+    nom : CHAINE
+    tmp : NUMERIQUE
+DEBUT
+    OUVRIR(file2, f1, "r")
+    OUVRIR(file2, « tmp », "w)
+
+    TANTQUE NON FDF(f1) FAIRE
+        LIRE(f1, nom, tmp)
+        ECRIRE(f2, nom,  tmp) 
+    FTQUE
+
+    FERMER(f1)
+    FERMER(f2)
+FINSA
+
+SSALGO isYourChildrenHere(fName : CHAINE PAR VALEUR)
+VARIABLE
+    file1 : FICHIER DE CHAINE
+    file2 : FICHIER DE CHAINE
+    nom : CHAINE
+    tmp : NUMERIQUE
+    enfant : CARACTERE
+DEBUT
+    OUVRIR(file2, f1, "r")
+    OUVRIR(file2, « tmp », "w)
+
+    TANTQUE NON FDF(f1) FAIRE
+        LIRE(f1, nom, tmp)
+        ECRIRE(f2, nom + "-1") // je dois transverser le type car le fichier a un type
+        ECRIRE("l'enfant de", nom, "seras il la [y/n]")
+        LIRE(enfant)
+        SI (enfant == 'y)
+            ALORS ECRIRE(file2, "%s %d\n", buffer, 1)
+            SINON ECRIRE(file2, "%s %d\n", buffer, 0)
+        FSI
+    FTQUE
+
+    FERMER(f1)
+    FERMER(f2)
+FINSA
+
+/*---------------------------------- part c ----------------------------------------*/
+
+SSALGO copyAndVerify(f1 : CHAINE PAR VALEUR, f2 : CHAINE PAR VALEUR)
+VARIABLE
+    file1 : FICHIER DE CHAINE
+    file2 : FICHIER DE CHAINE
+    nom : CHAINE
+DEBUT
+    OUVRIR(file2, f1, "r")
+    OUVRIR(file2, f2, "w)
+
+    TANTQUE NON FDF(f1) FAIRE
+        LIRE(f1, nom)
+        ECRIRE(f2, nom + "-1") // je dois transverser le type car le fichier a un type
+    FTQUE
+
+    FERMER(f)
+FINSA
+
+/*---------------------------------- part b ----------------------------------------*/
+
+SSALGO nbrname(fName : CHAINE PAR VALEUR)
+VARIABLE
+    f : FICHIER DE CHAINE
+    i : NUMERIQUE
+DEBUT
+    OUVRIR(f, fName, "r")
+
+    TANTQUE NON FDF(f) FAIRE
+        i <- i + 1
+    FTQUE
+
+    FERMER(f)
+FINSA
+
+/*---------------------------------- part a ----------------------------------------*/
+
+
+SSALGO nameToFile(fName : CHAINE PAR VALEUR)
+VARIABLE
+    f : FICHIER DE CHAINE
+    nom : CHAINE
+    yesno : BOOLEEN
+DEBUT
+    OUVRIR(f, fName, "w")
+    ECRIRE(faite bien ATTENTION a remplacer les espaces par le symbole -)
+    
+    REPETER
+        ECRIRE(veuillez saisir un nom)
+        LIRE(nom)
+        ECRIRE(f, nom)
+        ECRIRE(Voulez vous continuer ? [1/0])
+        LIRE(yesno)
+    JUSQUA (yesno == 1)
+
+    FERMER(f)
+FINSA
