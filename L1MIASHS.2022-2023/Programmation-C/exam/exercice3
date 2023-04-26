@@ -1,0 +1,42 @@
+TYPE
+TsiegeVide=ARTICLE
+	rangees : NUMERIQUE
+	siege : CARACTERE
+FART
+DEBUT
+	numero, lettre : TsiegeVide
+	LIRE (numero.rangees)
+	LIRE (lettre.siege)
+FIN
+
+
+SSALGO PlacesLibres (t : Tableau de R Tableau de S NUMERIQUE PAR VALEUR, nbpnr : NUMERIQUE PAR REFERENCE, TsiegeVide PAR REFERENCE)
+// SSALGO qui calcule et retourne le nombre de places non réservées (nbpnr)
+VARIABLE
+i,j : NUMERIQUE
+DEBUT
+nbpnr <- 0 //on incremente le nombre de siege vide à 0
+POUR i ALLANT de 1 A R FAIRE
+	POUR j ALLANT de 1 A S FAIRE //on va parcourir l avion
+		SI t[i][j]=0 ALORS
+			nbpnr <- nbpnr+1 //lorsqu on va trouver une place libre on va augmenter de 1 le compteur de siege vide
+		FSI
+	FPOUR
+FPOUR
+FINSA
+
+NUMERIQUE SSALGO PlaceLibre(t : Tableau de R Tableau de S NUMERIQUE PAR VALEUR, TsiegeVide PAR REFERENCE)
+// SSALGO qui recherche la première place libre et nous renvoie son numéro
+
+VARIABLE
+i,j : NUMERIQUE // utilisé par l’itérateur sur le tableau
+DEBUT
+	SI (t[i][j] = 0) ALORS //on regarde si la première place est vide
+		ECRIRE ("il y a une place vide à %d %d", &rangees, &lettre) //si elle l est on donne les coordonnées à l utilisateur
+	SINON
+		SI i < 30 ALORS i <- +1
+			SINON i = 0 et j <- +1 //sinon on passe à la place suivante
+		FSI
+	FSI
+RETOURNER()
+FINSA
